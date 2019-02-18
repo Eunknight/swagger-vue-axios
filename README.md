@@ -97,7 +97,9 @@ Now you can use `grunt vue` to run build task
 In Vue.js main file set API domain
 ```javascript
 import { setDomain } from './lib/api-client.js'
+import { setAxiosInstance } from './lib/api-client.js'
 setDomain('http://localhost:3000/api')
+setAxiosInstance(axios)
 ```
 
 Import API function into Vue.js component, for example to log in
