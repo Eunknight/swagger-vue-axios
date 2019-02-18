@@ -2,7 +2,7 @@
 Swagger to JS &amp; Vue &amp; Axios Codegen
 # Installation
 ```shell
-npm install swagger-vue-axios --dev
+npm install swagger-vue-axios --save-dev
 ```
 # Generate
 ## Using NodeJS file
