@@ -1,12 +1,19 @@
 /* eslint-disable */
 import axios from 'axios'
 import qs from 'qs'
-let domain = ''
+let domain = 'http://petstore.swagger.io/api'
+let axiosInstance = axios.create()
 export const getDomain = () => {
   return domain
 }
 export const setDomain = ($domain) => {
   domain = $domain
+}
+export const getAxiosInstance = () => {
+  return axiosInstance
+}
+export const setAxiosInstance = ($axiosInstance) => {
+  axiosInstance = $axiosInstance
 }
 export const request = (method, url, body, queryParameters, form, config) => {
   method = method.toLowerCase()
@@ -17,13 +24,11 @@ export const request = (method, url, body, queryParameters, form, config) => {
   }
   // let queryUrl = url+(keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '')
   if (body) {
-    return axios[method](queryUrl, body, config)
-  } else if (method === 'get') {
-    return axios[method](queryUrl, {
-      params: form
-    }, config)
+    return axiosInstance[method](queryUrl, body, config)
+  } else if (method === 'get' || method === 'delete' || method === 'head' || method === 'option') {
+    return axiosInstance[method](queryUrl, config)
   } else {
-    return axios[method](queryUrl, qs.stringify(form), config)
+    return axiosInstance[method](queryUrl, form, config)
   }
 }
 /*==========================================================
@@ -112,8 +117,6 @@ export const addPet = function(parameters = {}) {
       queryParameters[parameterName] = parameters.$queryParameters[parameterName]
     });
   }
-  form = queryParameters;
-  queryParameters = {};
   return request('post', domain + path, body, queryParameters, form, config)
 }
 export const addPet_RAW_URL = function() {
@@ -131,7 +134,6 @@ export const addPetURL = function(parameters = {}) {
       queryParameters[parameterName] = parameters.$queryParameters[parameterName]
     })
   }
-  queryParameters = {}
   let keys = Object.keys(queryParameters)
   return domain + path + (keys.length > 0 ? '?' + (keys.map(key => key + '=' + encodeURIComponent(queryParameters[key])).join('&')) : '')
 }
