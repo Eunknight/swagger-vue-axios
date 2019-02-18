@@ -1,5 +1,5 @@
 {
-  "name": "swagger-vue",
+  "name": "swagger-vue-axios",
   "version": "1.0.3",
   "description": "Swagger to JS & Vue & Axios Codegen",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenweiqun/swagger-vue.git"
+    "url": "git+https://github.com/joseboretto/swagger-vue-axios.git"
   },
   "keywords": [
     "swagger",
@@ -18,12 +18,12 @@
     "vue",
     "codegen"
   ],
-  "author": "chenweiqun",
+  "author": "joseboretto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chenweiqun/swagger-vue/issues"
+    "url": "https://github.com/joseboretto/swagger-vue-axios/issues"
   },
-  "homepage": "https://github.com/chenweiqun/swagger-vue#readme",
+  "homepage": "https://github.com/joseboretto/swagger-vue-axios#readme",
   "dependencies": {
     "handlebars": "^4.0.6",
     "js-beautify": "^1.6.12",
